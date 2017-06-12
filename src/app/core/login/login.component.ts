@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  signInLoading: boolean = false;
 
-  constructor() { }
+  constructor(private router: Router) {
+
+  }
+
+  login(username, password):void{
+    this.router.navigate(['erp']);
+  }
 
   ngOnInit() {
   }
