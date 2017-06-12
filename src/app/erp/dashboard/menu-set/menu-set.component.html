@@ -1,0 +1,8 @@
+<a class="title item">
+  <i class="{{menu.icon}} titleIcon icon"></i> {{menu.title}} <i class="dropdown icon"></i>
+</a>
+<div class="content">
+  <a class="item" *ngFor="let submenu of menu.submenus" [routerLink]="[menu.route,submenu.route]">
+    {{submenu.title}}
+  </a>
+</div>

@@ -1,0 +1,22 @@
+<div class="column">
+  <h1 class="ui header">Detalles del producto</h1>
+  <div class="ui two column grid stackable">
+    <div class="column">
+      <div class="ui segment">
+        <img class="ui image" [src]="['../assets/'+catalog.url_image]">
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui segment">
+        <h2 class="ui header">{{catalog.name}}</h2>
+        <div class="ui divider">
+        </div>
+        <h3 class="ui header">Precio: S/ {{catalog.price | number:'1.2-2'}}</h3>
+        <h3 class="ui header">Codigo: {{catalog.barCode}}</h3>
+        <div class="ui divider">
+        </div>
+        <p>{{catalog.description}}</p>
+      </div>
+    </div>
+  </div>      
+</div>

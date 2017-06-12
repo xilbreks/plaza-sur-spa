@@ -19,9 +19,16 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/semantic-ui-css/semantic.css",
+        "../src/assets/monokai-sublime.min.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/semantic-ui-css/semantic.min.js",
+        "../node_modules/chart.js/dist/Chart.min.js",
+        "../src/assets/jquery.nicescroll.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

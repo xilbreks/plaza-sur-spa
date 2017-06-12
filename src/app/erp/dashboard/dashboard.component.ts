@@ -1,32 +1,41 @@
-import { Component, AfterContentInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewEncapsulation } from '@angular/core';
+import { Http } from '@angular/http';
+import { Router } from '@angular/router';
+
+import { DashboardService } from './../dashboard.service';
+import { Dashboard } from './../dashboard';
 
 declare var $: any;
 
 @Component({
-  selector: 'app-shell',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-	encapsulation: ViewEncapsulation.None
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
-export class AppComponent implements AfterContentInit {
-  sideBarIsHide: boolean = false;
-  ManuelSideBarIsHide: boolean = false;
-  ManuelSideBarIsState: boolean = false;
-	isMobile = window.matchMedia("only screen and (max-width: 768px)");
-	cookies: string = null;
+export class DashboardComponent implements OnInit, AfterViewInit {
+    sideBarIsHide: boolean = false;
+    ManuelSideBarIsHide: boolean = false;
+    ManuelSideBarIsState: boolean = false;
+    isMobile = window.matchMedia("only screen and (max-width: 768px)");
+    cookies: string = null;
+    dashboard: Dashboard[];
 
-  constructor() {
-  }
+    constructor(
+      private http: Http,
+      private router: Router,
+      private dashboardService: DashboardService
+      ) {}
 
-	resizeSidebarManually(){
+    resizeSidebarManually(){
 		this.ManuelSideBarIsHide = true;
 		if (!this.ManuelSideBarIsState) {
         this.resizeSidebar("1");
         this.ManuelSideBarIsState = true;
-    } else {
-        this.resizeSidebar("0");
-        this.ManuelSideBarIsState = false;
-    }
+        } else {
+            this.resizeSidebar("0");
+            this.ManuelSideBarIsState = false;
+        }
 	}
 
 	resizeSidebar(op: string):void{
@@ -102,8 +111,21 @@ export class AppComponent implements AfterContentInit {
     });
 	}
 
-	ngAfterContentInit(){
-		if (this.isMobile.matches) {
+    ngOnInit() {
+        setTimeout(()=>{
+            this.algo();
+        },2000);
+        this.dashboardService.getDashboard().subscribe((dashboard)=>{
+            this.dashboard = dashboard;
+        });
+    }
+
+  algo():void{
+    this.http.get('https://jsonplaceholder.typicode.com/posts/1').subscribe(data=>{
+        console.log(data);
+        //this.router.navigate(['search']);
+    });
+    if (this.isMobile.matches) {
 			this.resizeSidebar("1");
 			$("body")
 				.getNiceScroll()
@@ -171,8 +193,9 @@ export class AppComponent implements AfterContentInit {
             .toggle("is-active");
     });
     $('.ui.embed').embed();
+  }
 
-
+    ngAfterViewInit(){
 	}
 
 }

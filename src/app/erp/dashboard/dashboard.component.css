@@ -485,7 +485,7 @@ html.ios body {
     padding: 0 !important;
 }
 .error404 {
-    background: url(../assets/404.png) no-repeat top center #6a8733 !important;
+    background: url(/assets/404.png) no-repeat top center #6a8733 !important;
     background-size: cover;
     width: 100%;
     min-height: 100%;
@@ -546,7 +546,7 @@ html.ios body {
 /* =============Profile Page============ */
 
 .profileheader {
-    background: url(../assets/profileheader.jpg) no-repeat top center;
+    background: url(/assets/profileheader.jpg) no-repeat top center;
     background-size: cover;
     width: 100%;
     height: 255px;
@@ -885,7 +885,7 @@ ul {
     -ms-transform: translateX(-50%) translateY(-50%);
     -o-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-    background: url(../assets/cd-arrow.svg) no-repeat 0 0;
+    background: url(/assets/cd-arrow.svg) no-repeat 0 0;
 }
 .cd-timeline-navigation a.prev {
     left: 0;
@@ -1395,7 +1395,7 @@ blockquote p {
     background: #333c44;
 }
 html {
-    font-size: 12px!important;
+    font-size: 13px!important;
 }
 a.item.transition {
     margin-left: 30px;

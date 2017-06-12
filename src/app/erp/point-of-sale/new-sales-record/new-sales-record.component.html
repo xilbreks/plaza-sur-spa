@@ -1,0 +1,76 @@
+<div class="column">
+  <h1 class="ui header">Vender</h1>
+  <div class="ui grid">
+    <div class="eight wide column">
+      <div class="ui raised segment">
+        <div class="ui divided items">
+          <div class="item" *ngFor="let p of bolsa">
+            <div class="ui tiny image">
+              <img [src]="['../assets/'+p.producto.url_image]">
+            </div>
+            <div class="middle aligned content">
+              <div class="header">
+                {{p.producto.name}}
+              </div>
+              <div class="description">
+                <p>S/ {{p.producto.price | number:'1.2-2'}}</p>
+              </div>
+              <div class="extra">
+                <div class="ui large label">Cantidad: {{p.cantidad}}</div>
+                <div class="ui basic buttons">
+                  <button class="ui button" (click)="add(p)">+</button>
+                  <button class="ui button" (click)="substract(p)">-</button>
+                </div>
+                <div class="ui right floated ui buttons">
+                  <button class="ui button" title="SubTotal">S/ {{p.cantidad*p.producto.price | number:'1.2-2'}}</button>
+                  <div class="or"></div>
+                  <button class="ui orange button" title="Eliminar" (click)="erase(p)">
+                    <i class="remove icon"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--
+        <div class="ui items">
+          <div class="item" *ngFor="let p of bolsa">
+            <div class="ui small image">
+              <img [src]="['../assets/'+p.producto.url_image]">
+            </div>
+            <div class="middle aligned content">
+              <div class="header">
+                {{p.producto.name}}
+              </div>
+              <div class="description">
+                <p></p>
+              </div>
+              <div class="extra">
+                <div class="ui right floated button">
+                  Action
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>-->
+        <div class="ui divider">
+          <div class="ui grid">
+            <div class="ten wide column">
+              <h3>Total</h3>
+            </div>
+            <div class="six wide column">
+              <h3>S/ {{subTotal | number:'1.2-2'}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="eight wide column">
+      <div class="ui segment">
+        <div class="ui tiny images">
+          <img class="ui image" *ngFor="let c of catalogs" [src]="['../assets/'+c.url_image]" (click)="addToBolsa(c)">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
