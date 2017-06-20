@@ -20,6 +20,11 @@ const childRoutes: Routes = [
     loadChildren: './point-of-sale/point-of-sale.module#PointOfSaleModule',
     canActivate: []
   },
+  {
+    path: 'inventario',
+    loadChildren: './inventory/inventory.module#InventoryModule',
+    canActivate: []
+  },
   // ===========================
   // Any other erpModule here ==
   // ===========================

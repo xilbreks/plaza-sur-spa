@@ -7,7 +7,7 @@ import { Observer } from 'rxjs/Observer';
 import { AuthService } from './auth.service';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class LoggedInGuard implements CanActivate {
 
   constructor(
     private router: Router,
@@ -21,18 +21,17 @@ export class AuthGuard implements CanActivate {
     if (localStorage.getItem('token')) {
       return new Observable<boolean>((obs: Observer<boolean>)=>{
         this.authService.checkValidityOfTheToken(localStorage.getItem('token')).subscribe((res)=>{
-          if(res.status){
-            obs.next(res.status);
-          }else{
+          if(!res.status){
             localStorage.removeItem('token');
-            this.router.navigate(['/login']);      
-            obs.next(res.status);
+            obs.next(!res.status);
+          }else{
+            this.router.navigate(['/app']);
+            obs.next(!res.status);
           }
         });
       });
     }else {
-      this.router.navigate(['/login']);
-      return false;
+      return true;
     }
   }
 }

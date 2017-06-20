@@ -2,20 +2,24 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 import { ShellComponent } from './shell/shell.component';
+import { LoggedInGuard } from './logged-in.guard';
 
 const appRoutes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [
+      LoggedInGuard
+    ]
   },
   {
-    path: 'erp',
+    path: 'app',
     loadChildren: './../erp/erp.module#ErpModule',
     canActivate: [
       AuthGuard
@@ -30,7 +34,7 @@ const appRoutes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
+    HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
   declarations: [
@@ -42,7 +46,8 @@ const appRoutes: Routes = [
       provide: LocationStrategy, useClass: HashLocationStrategy
     },
     AuthService,
-    AuthGuard
+    AuthGuard,
+    LoggedInGuard
   ],
   exports: [
     ShellComponent

@@ -1,0 +1,71 @@
+<div class="column">
+  <div class="ui basic">
+  <h1 class="ui header">Categorias</h1>
+  <div class="ui grid">
+    <div class="four column row">
+      <div class="left floated column">
+        <div class="ui buttons">
+          <button class="ui left attached icon mini blue button" (click)="changeDirection()">
+            <i [ngClass]="{'up': sortDirection > 0, 'down':sortDirection <= 0}" class="arrow up icon"></i>
+          </button>
+          <div class="ui right attached icon top left pointing dropdown blue button">
+            <i class="sort content descending icon"></i>
+            <span class="text">Ordenar</span>
+            <div class="menu">
+              <div class="header">
+                Ordenar por
+              </div>
+              <div class="item" (click)="changeSort('Time')">
+                Codigo
+              </div>
+              <div class="item" (click)="changeSort('Votes')">
+                Nombre
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right floated column">
+        <div class="ui fluid icon input">
+          <input #listFilter (keyup)="0"  type="text" placeholder="Buscar..."/>
+          <i class="search icon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <table class="ui celled table">
+  <thead>
+    <tr>
+      <th style="text-align:center">codigo</th>
+      <th>Nombre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let category of categories">
+      <td style="text-align:center"><a [routerLink]="[category.code]">{{category.code}}</a></td>
+      <td>{{category.name}}</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr><th colspan="4">
+      <div class="ui right floated pagination menu">
+        <a class="icon item">
+          <i class="left chevron icon"></i>
+        </a>
+        <a class="item">1</a>
+        <a class="item">2</a>
+        <a class="item">3</a>
+        <a class="item">4</a>
+        <a class="icon item">
+          <i class="right chevron icon"></i>
+        </a>
+      </div>
+    </th>
+  </tr></tfoot>
+</table>
+
+
+</div>
+

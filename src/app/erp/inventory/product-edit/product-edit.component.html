@@ -1,0 +1,63 @@
+<h1 class="ui header">Edicion de producto</h1>
+<div class="ui two column container grid">
+  <div class="column">
+    <div class="ui segment">
+      <img class="ui image" [src]="['../assets/001.jpg']">
+    </div>
+  </div>
+  <div class="column">
+    <div class="ui segment">
+      <form  class="ui form">
+        <div class="required field">
+          <label>Name</label>
+          <input type="text" name="first-name" placeholder="Product name">
+        </div>
+        <div class="field">
+          <label>Description</label>
+          <textarea rows="2" style="margin-top: 0px; margin-bottom: 0px; height: 58px;"></textarea>
+        </div>
+        <div class="fields">
+          <div class="six wide field">
+            <label>Price</label>
+            <div class="ui labeled input">
+              <div class="ui label">S/</div>
+              <input type="number" placeholder="Price">
+            </div>
+          </div>
+          <div class="ten wide field">
+            <label>Image</label>
+            <input type="file">
+          </div>
+        </div>
+         <div class="field">
+          <label>Tags</label>
+          <select multiple="" class="ui dropdown">
+            <option value="">Select Country</option>
+            <option value="AF">Afghanistan</option>
+            <option value="AX">Åland Islands</option>
+            <option value="AL">Albania</option>
+            <option value="DZ">Algeria</option>
+            <option value="AS">American Samoa</option>
+            <option value="AD">Andorra</option>
+            <option value="AO">Angola</option>
+            <option value="AI">Anguilla</option>
+            <option value="AQ">Antarctica</option>
+            <option value="AG">Antigua and Barbuda</option>
+            <option value="AR">Argentina</option>
+            <option value="AM">Armenia</option>
+            <option value="AW">Aruba</option>
+            <option value="AU">Australia</option>
+            <option value="AT">Austria</option>
+          </select>
+        </div>
+        <button class="ui green button">Done</button>
+        <button class="ui button">Cancel</button>
+        <div class="ui divider"></div>
+        <div class="field">
+          <label>Dangerous zone</label>
+          <button class="ui red button"><i class="trash icon"></i> Delete</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

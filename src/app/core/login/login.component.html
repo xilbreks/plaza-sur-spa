@@ -11,24 +11,21 @@
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" #username placeholder="Nombre de usuario">
+            <input type="text" name="username" #username placeholder="Nombre de usuario">
           </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
             <i class="lock icon"></i>
-            <input type="password" #password placeholder="Contraseña">
+            <input type="password" name="password" #password placeholder="Contraseña">
           </div>
         </div>
-        <button class="ui fluid large teal button" [class.loading]="signInLoading" type="submit" (click)="login(username,password)">Entrar</button>
+        <button class="ui fluid large teal button" [class.loading]="signInLoading" type="submit" (click)="logIn(username,password)">Entrar</button>
       </div>
     </form>
-    <div class="ui error message">
+    <div class="ui error message" *ngIf="error">
       <ul class="list">
-        <li>Please enter your e-mail</li>
-        <li>Please enter a valid e-mail</li>
-        <li>Please enter your password</li>
-        <li>Your password must be at least 6 characters</li>
+        <li>{{message}}</li>
       </ul>
     </div>
   </div>

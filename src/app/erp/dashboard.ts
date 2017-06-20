@@ -7,7 +7,8 @@ export class Dashboard {
         public submenus: {
             title: string,
             route: string,
-            icon?: string
+            icon?: string,
+            privileges?: string
         }[]
     ){
     }
