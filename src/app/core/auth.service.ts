@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { environment } from './../../environments/environment.prod';
 
 interface res{
-  status: boolean,
+  status: number,
   msg: string,
   result?: string
 }
@@ -19,22 +19,21 @@ export class AuthService {
   ) {
   }
 
-  checkValidityOfTheToken(token: string):Observable<res>{
-    /*return this.http.post(`${environment.urlApiServer}/vtoken`,{}).map(data=>data.json());*/
+  checkValidityOfTheToken(token: string):Observable<any>{
+    //return this.http.post(`${environment.urlApiServer}/vtoken`,JSON.stringify({data:"lala"}));
     return new Observable<res>((obs)=>{
       setTimeout(() => {
         if(token == '12345'){
           obs.next({
-            status: true,
+            status: 200,
             msg: 'ok'
           });
         }else{
           obs.next({
-            status: false,
-            msg: 'invalid token'
+            status: 401,
+            msg: 'Su sesion ya expiro!'
           });
         }
-        
       }, 10);
     });
   }
@@ -45,14 +44,14 @@ export class AuthService {
       setTimeout(() => {
         if(username=='socks' && password=='socks'){
           obs.next({
-            status: true,
+            status: 200,
             msg: 'ok',
             result: '12345'
           });
         }else{
           obs.next({
-            status: false,
-            msg: 'wrong password'
+            status: 403,
+            msg: 'Credenciales incorrectas'
           });
         }
       }, 10);

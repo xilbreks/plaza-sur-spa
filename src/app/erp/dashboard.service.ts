@@ -16,14 +16,33 @@ export class DashboardService {
     });*/
     return new Observable<Dashboard[]>((obs)=>{
       obs.next([
-        new Dashboard('P. Venta', 'newspaper', 'point-of-sale', false, [
-          {route: 'catalogo', title: 'Catalogo', icon: 'apple'},
-          {route: 'clientes', title: 'Clientes', icon: 'like'}, 
-          {route: 'vender', title: 'Vender', icon: 'square'}
+        new Dashboard('P. Venta', 'shop', 'punto-de-venta', [
+          {route: 'catalogo', title: 'Catalogo'},
+          {route: 'clientes', title: 'Clientes'}, 
+          {route: 'vender', title: 'Vender'},
+          {route: 'ventas', title: 'Ventas'}
         ]),
-        new Dashboard('Almacen', 'feed', 'B', true, [{route: 'B1', title: 'Hello 1', icon: 'apple'}, {route: 'B2', title: 'Hello A', icon: 'apple'}, {route: 'B3', title: 'firebase-storage', icon: 'apple'}]),
-        new Dashboard('RRHH', 'tasks', 'C', false, [{route: 'C1', title: 'Nada 1', icon: 'apple'}, {route: 'C2', title: 'k-achina', icon: 'apple'}, {route: 'C3', title: 'Nada e', icon: 'apple'}]),
-        new Dashboard('CRM', 'home', 'D', false, [{route: 'D1', title: 'Mensaj 1', icon: 'apple'}, {route: 'D2', title: 'Mensaj A', icon: 'apple'}, {route: 'D3', title: 'Mensaj e', icon: 'apple'}])
+        new Dashboard('Inventario', 'browser', 'inventario', [
+          {route: 'productos', title: 'Productos', icon: 'barcode'},
+          {route: 'categorias', title: 'Categorias'}
+        ]),
+        new Dashboard('CRM', 'coffee', 'crm', [
+          {route: 'clientes', title: 'Clientes'}
+        ]),
+        new Dashboard('SRM', 'motorcycle', 'srm', [
+          {route: 'proveedores', title: 'Proveedores'}
+        ]),
+        new Dashboard('Logistica', 'home', 'loguistica', [
+          {route: 'ventas', title: 'Ventas'},
+          {route: 'compras', title: 'Compras'},
+          {route: 'cardex', title: 'Cardex'}
+        ]),
+        new Dashboard('Usuarios', 'users', 'usuarios', [
+          {route: 'usuarios', title: 'Usuarios', icon: 'users'}
+        ]),
+        new Dashboard('Inteligencia de Negocio', 'bar chart', 'bi', [
+          {route: 'reportes', title: 'Reportes'}
+        ])
       ]);
     });
   }

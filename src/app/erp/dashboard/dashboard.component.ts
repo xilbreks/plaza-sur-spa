@@ -1,5 +1,4 @@
 import { Component, OnInit, AfterViewInit, ViewEncapsulation } from '@angular/core';
-import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 
 import { DashboardService } from './../dashboard.service';
@@ -22,7 +21,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     dashboard: Dashboard[];
 
     constructor(
-      private http: Http,
       private router: Router,
       private dashboardService: DashboardService
       ) {}
@@ -121,10 +119,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }
 
   algo():void{
-    //this.http.get('https://jsonplaceholder.typicode.com/posts/1').subscribe(data=>{
-        //console.log(data);
-        //this.router.navigate(['search']);
-    //});
+
     if (this.isMobile.matches) {
 			this.resizeSidebar("1");
 			$("body")

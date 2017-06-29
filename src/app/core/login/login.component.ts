@@ -23,26 +23,26 @@ export class LoginComponent implements OnInit, AfterViewInit {
     this.signInLoading = true;
     this.error = false;
     this.message = '';
-    
-    this.authService.logIn(username.value, password.value).subscribe((res)=>{
-      this.signInLoading = false;
-      if(res.status){
-        console.log(res.msg);
-        localStorage.setItem('token',res.result);
-        this.router.navigate(['./app']);
-      }else{
-        console.log(res.msg);
+    console.log('Preguntado al servidor para validar credenciales');
+    this.authService.logIn(username.value, password.value).subscribe(
+      (response)=>{
+        this.signInLoading = false;
+        if(response.status==200){
+          console.log('Credenciales correctas');
+          localStorage.setItem('token',response.result);
+          this.router.navigate(['./app']);
+        }else{
+          console.log('Credenciales incorrectas');
+          this.error = true;
+          this.message = response.msg; 
+          password.value = '' ;
+        }
+      },(error)=>{
+        this.signInLoading = false;
         this.error = true;
-        this.message = res.msg; 
+        this.message = 'No se pudo conectar al servidor, verifica tu conexion a internet';
         password.value = '' ;
-      }
-    },(res)=>{
-      this.signInLoading = false;
-      this.error = true;
-      this.message = 'No se pudo conectar al servidor de Steam';
-      password.value = '' ;
-    });
-    
+      });
     return false;
   }
 
