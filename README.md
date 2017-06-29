@@ -1,28 +1,26 @@
 # PlazaSurSpa
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.1.
+Este proyecto es Plaza Sur. Una aplicacion de lado cliente hecha con Angular.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+# Pruebalo
+Antes que nada, deberas tener [Angular/cli](https://cli.angular.io/) v1.1.1+
+Descargar el proyecto
+``` bash
+$ git clone https://github.com/xilbreks/plaza-sur-spa.git
+```
+Entrar al directorio del proyecto
+``` bash
+$ cd plaza-sur-spa
+```
+Instalar depedencias
+```
+$ npm install
+```
+Y Finalmente, ejecutar el programa
+```
+$ ng serve
+```
+Ingresa desde tu navegador (username=`socks`, password=`socks`)
+```
+http://localhost:4200/
+```
