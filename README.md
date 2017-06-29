@@ -1,4 +1,4 @@
-# PlazaSurSpa
+# PlazaSurSpa AGG TMR REPORT TIM
 
 Este proyecto es Plaza Sur. Una aplicacion de lado cliente hecha con Angular.
 
