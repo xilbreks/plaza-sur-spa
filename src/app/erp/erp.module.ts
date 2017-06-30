@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpModule } from '@angular/http';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PruebaComponent } from './prueba/prueba.component';
@@ -16,7 +15,7 @@ const childRoutes: Routes = [
     component: PruebaComponent
   },
   {
-    path: 'point-of-sale',
+    path: 'punto-de-venta',
     loadChildren: './point-of-sale/point-of-sale.module#PointOfSaleModule',
     canActivate: []
   },
@@ -25,31 +24,52 @@ const childRoutes: Routes = [
     loadChildren: './inventory/inventory.module#InventoryModule',
     canActivate: []
   },
-  // ===========================
-  // Any other erpModule here ==
-  // ===========================
+  {
+    path: 'crm',
+    loadChildren: './crm/crm.module#CrmModule',
+    canActivate: []
+  },
+  {
+    path: 'srm',
+    loadChildren: './srm/srm.module#SrmModule',
+    canActivate: []
+  },
+  {
+    path: 'loguistica',
+    loadChildren: './logistics/logistics.module#LogisticsModule',
+    canActivate: []
+  },
+  {
+    path: 'usuarios',
+    loadChildren: './users/users.module#UsersModule',
+    canActivate: []
+  },
+  {
+    path: 'business-intelligence',
+    loadChildren: './business-intelligence/business-intelligence.module#BusinessIntelligenceModule',
+    canActivate: []
+  },
   {
     path: '**',
-    redirectTo: 'point-of-sale'
+    redirectTo: ''
   },
 ];
 
 const erpRoutes: Routes = [
   {
-    path: 'm',
+    path: 'main',
     component: DashboardComponent,
     children: childRoutes
   },
   {
     path: '**',
-    redirectTo: 'm'
+    redirectTo: 'main'
   }
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    HttpModule,
     RouterModule.forChild(erpRoutes)
   ],
   declarations: [

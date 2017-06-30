@@ -40,7 +40,7 @@ export class DashboardService {
         new Dashboard('Usuarios', 'users', 'usuarios', [
           {route: 'usuarios', title: 'Usuarios', icon: 'users'}
         ]),
-        new Dashboard('Inteligencia de Negocio', 'bar chart', 'bi', [
+        new Dashboard('Inteligencia de Negocio', 'bar chart', 'business-intelligence', [
           {route: 'reportes', title: 'Reportes'}
         ])
       ]);
