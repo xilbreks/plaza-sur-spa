@@ -6,7 +6,7 @@
         <div class="ui divided items">
           <div class="item" *ngFor="let p of bolsa">
             <div class="ui tiny image">
-              <img [src]="['../assets/'+p.producto.url_image]">
+              <img [src]="['./assets/'+p.producto.url_image]">
             </div>
             <div class="middle aligned content">
               <div class="header">
@@ -68,7 +68,7 @@
     <div class="eight wide column">
       <div class="ui segment">
         <div class="ui tiny images">
-          <img class="ui image" *ngFor="let c of catalogs" [src]="['../assets/'+c.url_image]" (click)="addToBolsa(c)">
+          <img class="ui image" *ngFor="let c of catalogs" [src]="['./assets/'+c.url_image]" (click)="addToBolsa(c)">
         </div>
       </div>
     </div>
