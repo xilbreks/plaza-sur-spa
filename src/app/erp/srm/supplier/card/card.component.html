@@ -1,0 +1,67 @@
+<div class="column" *ngIf="supplier">
+  <h1 class="ui header">Datos del Proveedor</h1>
+  <div class="ui grid">
+    <div class="four wide column">
+      <div class="ui segment">
+        <img class="ui image" [src]="[supplier.urlImage]">
+      </div>
+    </div>
+    <div class="twelve wide column">
+      <div class="ui segment">
+        <h2 class="ui header">Razon Social: <b>{{supplier.name}}</b></h2>
+				<div class="ui grid">
+					<div class="eight wide column">
+						<h3 class="ui header">
+							Ruc
+							<div class="sub header">
+								{{supplier.ruc}}
+							</div>
+						</h3>
+						<h3 class="ui header">
+							Email
+							<div class="sub header">
+								{{supplier.email}}
+							</div>
+						</h3>
+					</div>
+					<div class="eight wide column">
+						<h3 class="ui header">
+							Direccion
+							<div class="sub header">
+								{{supplier.address}}
+							</div>
+						</h3>
+						<h3 class="ui header">
+							Numeros
+							<div class="sub header">
+								<div class="ui list">
+									<div class="item" *ngFor="let phone of supplier.phones">
+										<i class="phone icon"></i>
+										<div class="content">
+											{{phone.number}}
+										</div>
+									</div>
+								</div>
+							</div>
+						</h3>
+					</div>
+				</div>
+				<h3 class="ui header">
+					Contactos
+				</h3>
+				<div class="ui accordion" *ngFor="let contact of supplier.contacts">
+					<div class="title">
+						<i class="dropdown icon"></i>
+						{{contact.first_name + ' ' + contact.last_name}}
+					</div>
+					<div class="content">
+						<p class="transition hidden">
+							<b>Telefono</b> {{contact.phone}} <br>
+							<b>Email</b> {{contact.email}} <br>
+						</p>
+					</div>
+				</div>
+      </div>
+    </div>
+  </div>      
+</div>

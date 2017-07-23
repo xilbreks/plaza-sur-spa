@@ -1,5 +1,44 @@
-<div class="ui column">
-  <p>
-    sales works!
-  </p>
+<div class="column">
+  <h1 class="ui header">
+    Ventas
+  </h1>
+
+  <app-list-header [findQuery]="_findQuery">
+  </app-list-header>
+
+  <app-sales-header [sortDirection]="_sortDirection" [sortBy]="_sortBy">
+  </app-sales-header>
+
+  <div *ngIf="loading; else elseTemplate">
+    <div class="ui loading segment" style="min-height:200px">
+      <p></p><p></p>
+    </div>
+  </div>
+  <ng-template #elseTemplate>
+    <table *ngIf="sales.length; else otroTemplate" class="ui celled table" style="margin-top:0em;">
+      <tbody>
+        <tr *ngFor="let sale of sales">
+          <td style="text-align:center" class="six wide column">
+            <a [routerLink]="['./../sale/'+sale.id+'/card']">{{sale.id}}</a>
+          </td>
+          <td style="text-align:center" class="seven wide column">
+            {{sale.voucher}}
+          </td>
+          <td style="text-align:center" class="three wide column">
+            {{sale.customer_id}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-template #otroTemplate>
+      <div class="ui secondary segment">
+        <p>No se encontraron registros con estas caracteristicas, pruebe otra configuracion.</p>
+      </div>
+    </ng-template>
+  </ng-template>
+
+  <!--<app-list-pagination *ngIf="!loading && sales.length" [pagination]="pagination">
+  </app-list-pagination>
+  -->
+
 </div>

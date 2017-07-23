@@ -1,0 +1,152 @@
+<div class="column">
+  <h2 class="ui centered header">Productos a la ventaa</h2>
+
+  <div class="ui grid">
+
+    <div class="six wide column">
+      <!-- Lista de producto ya pedidos -->
+      <div class="ui segment" *ngIf="bolsa.length">
+        <button class="ui fluid button" (click)="openPayModal()">
+          <i class="check icon"></i>
+          Pagar
+        </button>
+      </div>
+      <div class="ui segment">
+        <div class="ui divided items">
+          <div class="item" *ngFor="let p of bolsa">
+            <div class="ui tiny image">
+              <img [src]="p.producto.url_image">
+            </div>
+            <div class="middle aligned content">
+              <div class="header">
+                {{p.producto.name}}
+              </div>
+              <div class="description">
+                <p>S/ {{p.producto.suggested_price | number:'1.2-2'}}</p>
+              </div>
+              <div class="extra">
+                <div class="ui large label">Cantidad: {{p.cantidad}}</div>
+                <div class="ui basic buttons">
+                  <button class="ui button" (click)="add(p)">+</button>
+                  <button class="ui button" (click)="substract(p)">-</button>
+                </div>
+                <div class="ui right floated ui buttons">
+                  <button class="ui button" title="SubTotal">S/ {{p.cantidad*p.producto.suggested_price | number:'1.2-2'}}</button>
+                  <div class="or"></div>
+                  <button class="ui orange button" title="Eliminar" (click)="erase(p)">
+                    <i class="remove icon"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <h2 class="ui centered header">Sub Total: {{subTotal | number:'1.2-2'}}</h2>
+          </div>
+        </div>
+      </div>
+      <!--- - - - - - - - - - - - - - - - - - -->
+    </div>
+    <div class="ten wide column">
+      <!-- Buscador y listado de productos -->
+      <div class="row">
+        <div class="ui icon input">
+          <input type="text" #listFilter (keyup)="0" value="" placeholder="buscar" />
+          <i class="search icon"></i>
+        </div>
+      </div>
+      <div class="row">
+        <div class="ui segment">
+          <div class="ui six link doubling cards">
+            <div class="card" *ngFor="let producto of products | productFilter:listFilter.value" (click)="addToBolsa(producto)">
+              <div class="image">
+                <img [src]="producto.url_image">
+              </div>
+              <div class="content">
+                <div class="header">{{producto.name}}-color:{{producto.color}} </div>
+              </div>
+              <div class="extra content">
+                <span>
+                  <i class="closed captioning icon"></i>
+                  Precio: S/{{producto.suggested_price }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sixteen wide column">
+      <!--
+      <pre>
+      {{customers | json}}
+      </pre>
+      -->
+      <!--
+      <pre>
+      {{products | json}}
+      </pre>
+      -->
+    </div>
+  </div>
+
+</div>
+
+<!-- modal for payment -->
+
+<div class="ui modal">
+  <div class="header">
+    Pagar
+  </div>
+  <div class="image content">
+    <div class="description">
+      <table class="ui celled padded table">
+        <thead>
+          <tr>
+            <th>Pagado</th>
+            <th>Total</th>
+            <th>Vuelto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="ui input">
+                <input type="number" #pagando value=0>
+              </div>
+            </td>
+            <td>
+              <h2 class="ui center aligned header">{{subTotal | number:'1.2-2'}}</h2>
+            </td>
+            <td>
+              <h2 class="ui center aligned header">{{pagando.value - subTotal | number:'1.2-2'}}</h2>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="ui accordion">
+        <div class="title">
+          <i class="dropdown icon"></i> Mas datos
+        </div>
+        <div class="content">
+          <div class="ui form">
+            <div class="field">
+              <label for="cliente">Cliente</label>
+                <select id="cliente">
+                  <option *ngFor="let customer of customers" value="{{customer.id}}">{{customer.last_name + ' ' + customer.first_name}}</option>
+                </select>
+            </div>
+            <div class="field">
+              <label for="comment">Comentario</label>
+              <input type="text" id="comment" #comentario value="" placeholder="comentario" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui button" (click)="saveRecord(comentario.value)">Pagar</div>
+    <div class="ui cancel button">Volver</div>
+  </div>
+</div>

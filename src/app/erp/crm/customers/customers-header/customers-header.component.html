@@ -1,0 +1,21 @@
+<table class="ui celled table">
+  <thead>
+    <tr>
+      <th style="text-align:center; cursor:pointer" class="six wide column" (click)="changeSortBy('name')">
+        Nombre
+        <i *ngIf="sortBy=='name'" class="caret icon" [ngClass]="{'up': sortDirection=='ascending', 'down':sortDirection=='descending'}">
+        </i>
+      </th>
+      <th style="text-align:center; cursor:pointer" class="seven wide column" (click)="changeSortBy('email')">
+        Email
+        <i *ngIf="sortBy=='email'" class="caret icon" [ngClass]="{'up': sortDirection=='ascending', 'down':sortDirection=='descending'}">
+        </i>
+      </th>
+      <th style="text-align:center; cursor:pointer" class="three wide column" (click)="changeSortBy('phone')">
+        Telefono
+        <i *ngIf="sortBy=='phone'" class="caret icon" [ngClass]="{'up': sortDirection=='ascending', 'down':sortDirection=='descending'}">
+        </i>
+      </th>
+    </tr>
+  </thead>
+</table>

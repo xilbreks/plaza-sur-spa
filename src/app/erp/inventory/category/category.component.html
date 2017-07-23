@@ -1,0 +1,16 @@
+<div class="column">
+  <div class="ui tabular menu">
+    <div class="right menu">
+      <a class="item" [class.active]="activeMenu=='card'" [routerLink]="['./card']">
+        Ficha
+      </a>
+      <a class="item" [class.active]="activeMenu=='editar'" [routerLink]="['./editar']">
+        Editar
+      </a>
+    </div>
+  </div>
+  <div class="ui segment">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+  

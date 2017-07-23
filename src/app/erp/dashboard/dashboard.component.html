@@ -1,5 +1,5 @@
 <!--sidebar-->
-<div class="ui left sidebar vertical menu overlay  borderless visible sidemenu inverted teal" style="transition-duration: 0.1s; overflow: hidden; outline: none;" data-color="inverted teal" tabindex="0">
+<div class="ui left sidebar vertical menu overlay  borderless visible sidemenu inverted" style="transition-duration: 0.1s; overflow: hidden; outline: none;" data-color="inverted teal" tabindex="0">
 	<a class="item logo" [routerLink]="['/']">
     <img [src]="['./assets/logo.png']">
     <img [src]="['./assets/thumblogo.png']" class="displaynone">
@@ -11,6 +11,7 @@
 	</div>
 	<app-icon-menu-set *ngFor="let menu of dashboard" [menu]="menu"></app-icon-menu-set>
 
+<!--
 	<div class="ui divider"></div>
 	<a class="item" href="typography.html">
   	<i class="print icon"></i>
@@ -58,6 +59,7 @@
 			</div>
 		</div>
 	</a>
+	-->
 	<div id="ascrail2003" class="nicescroll-rails nicescroll-rails-vr" style="width: 5px; z-index: 9999999; cursor: default; position: absolute; top: 1px; left: -6px; height: 0px; display: none;">
 		<div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 5px; height: 0px; background-color: rgb(61, 59, 59); border: 0px; background-clip: padding-box; border-radius: 0px;"></div>
 	</div>
@@ -120,7 +122,7 @@
 	<!--navbar-->
 	<div class="pusher" style="overflow: auto;">
 		<div class="navslide navwrap">
-			<div class="ui menu icon borderless grid inverted teal" data-color="inverted teal">
+			<div class="ui menu icon borderless grid inverted" data-color="inverted teal">
 				<a class="item labeled" (click)="resizeSidebarManually()">
           <i class="content big icon"></i>
         </a>
@@ -139,7 +141,7 @@
 								<i class="crosshairs icon"></i> Stock minimo en chockman
 							</div>
 							<div class="item">
-								<i class="crosshairs icon"></i> Janice Robinson comento
+								<i class="crosshairs icon"></i> Chockman cambio su foto
 							</div>
 							<div class="header">
 								Ayer
@@ -148,10 +150,10 @@
 								<i class="crosshairs icon"></i> Wilson Renuncio
 							</div>
 							<div class="item">
-								<i class="crosshairs icon"></i> Marco Te envio un mensaje
+								<i class="crosshairs icon"></i> A Trump le gusta tu foto
 							</div>
 							<div class="item">
-								<i class="crosshairs icon"></i> Pronostico de huaico
+								<i class="crosshairs icon"></i> La Britani quiere ser tu amiga
 							</div>
 						</div>
 					</div>

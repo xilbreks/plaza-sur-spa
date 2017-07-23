@@ -41,7 +41,9 @@ export class DashboardService {
           {route: 'usuarios', title: 'Usuarios', icon: 'users'}
         ]),
         new Dashboard('Inteligencia de Negocio', 'bar chart', 'business-intelligence', [
-          {route: 'reportes', title: 'Reportes'}
+          {route: 'reportes', title: 'Reportes'},
+          {route: 'historial', title: 'Historial'},
+          {route: 'cantidad', title: 'Cantidad'}
         ])
       ]);
     });

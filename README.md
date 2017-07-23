@@ -29,3 +29,27 @@ Ingresa desde tu navegador (username=`socks`, password=`socks`)
 ```
 http://localhost:4200/
 ```
+
+
+
+requerimientos para charts:
+
+-buscar producto y mostrar historial (barchart)
+-compraracio de ventas x precio y cantidad (radar chart) 
+-ganancias costos y ganancia (linechart)
+-cantidad de productos (paichart)
+
+cardex de cada producto:
+
+nombre, stock_min, stock_max, fecha, existencias.
+
+| Fechas | detalle | Entradas | Salidas | Existencias |
+|  |  |  |  |  |
+| Fechas | detalle | cantidad_entrante, precio, total | cantidad_entrante, precio, total | cantidad_entrante, precio, total |
+
+total:
+detalle,
+cantidad_entrante, precio, total
+
+
+

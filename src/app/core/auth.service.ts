@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 
 import { environment } from './../../environments/environment.prod';
@@ -20,7 +20,9 @@ export class AuthService {
   }
 
   checkValidityOfTheToken(token: string):Observable<any>{
-    //return this.http.post(`${environment.urlApiServer}/vtoken`,JSON.stringify({data:"lala"}));
+
+    //return this.http.post(`http://192.168.8.105:3000/api/v1/vtoken`,JSON.stringify({data:"lala"}));
+    
     return new Observable<res>((obs)=>{
       setTimeout(() => {
         if(token == '12345'){
@@ -36,10 +38,20 @@ export class AuthService {
         }
       }, 10);
     });
+    
   }
 
   logIn(username: string, password: string){
-    /*return this.http.post(`${environment.urlApiServer}/token`,{}).map(data=>data.json());*/
+
+    let header: Headers = new Headers({
+      'Content-type': 'application/json'
+    })
+    /*return this.http.post(`http://10.7.8.9:3000/api/v1/token`,
+      {data:{username: 'root',password:'root'}},
+      {headers: header})
+      .map(data=>data.json());
+    */
+    
     return new Observable<res>((obs)=>{
       setTimeout(() => {
         if(username=='socks' && password=='socks'){
@@ -56,6 +68,7 @@ export class AuthService {
         }
       }, 10);
     });
+    
   }
 
 }

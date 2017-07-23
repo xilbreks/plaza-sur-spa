@@ -1,0 +1,4 @@
+.ui.menu .item.disabled{
+    background-color: rgb(7, 71, 166) !important;
+    color: rgb(255, 255, 255);
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewEncapsulation, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { DashboardService } from './../dashboard.service';
@@ -22,8 +22,18 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
     constructor(
       private router: Router,
-      private dashboardService: DashboardService
-      ) {}
+      private dashboardService: DashboardService,
+      private ngZone: NgZone
+    ) {
+        window.onresize = (e) =>
+        {
+            //ngZone.run will help to run change detection
+            this.ngZone.run(() => {
+                console.log("Width: " + window.innerWidth);
+                console.log("Height: " + window.innerHeight);
+            });
+        };
+    }
 
     resizeSidebarManually(){
 		this.ManuelSideBarIsHide = true;

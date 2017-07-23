@@ -1,5 +1,47 @@
-<div class="ui column">
-  <p>
-    suppliers works!
-  </p>
+<div class="column">
+  <h1 class="ui header">
+    Proveedores
+  </h1>
+
+  <app-list-header [findQuery]="_findQuery">
+  </app-list-header>
+
+  <app-suppliers-header [sortDirection]="_sortDirection" [sortBy]="_sortBy">
+  </app-suppliers-header>
+
+  <div *ngIf="loading; else elseTemplate">
+    <div class="ui loading segment" style="min-height:200px">
+      <p></p><p></p>
+    </div>
+  </div>
+  <ng-template #elseTemplate>
+    <table *ngIf="suppliers.length; else otroTemplate" class="ui celled table" style="margin-top:0em;">
+      <tbody>
+        <tr *ngFor="let supplier of suppliers; let i=index">
+          <td style="text-align:center" class="one wide column">
+            {{i+1}}
+          </td>
+          <td style="text-align:center" class="five wide column">
+            <a [routerLink]="['./../proveedor/'+supplier.id+'/card']">{{supplier.name}}</a>
+          </td>
+          <td style="text-align:center" class="seven wide column">
+            {{supplier.email}}
+          </td>
+          <td style="text-align:center" class="three wide column">
+            {{supplier.ruc}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-template #otroTemplate>
+      <div class="ui secondary segment">
+        <p>No se encontraron registros con estas caracteristicas, pruebe otra configuracion.</p>
+      </div>
+    </ng-template>
+  </ng-template>
+
+  <!--<app-list-pagination *ngIf="!loading && suppliers.length" [pagination]="pagination">
+  </app-list-pagination>
+  -->
+
 </div>

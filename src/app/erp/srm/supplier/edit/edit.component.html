@@ -1,0 +1,97 @@
+<div class="column" *ngIf="supplier">
+  <h1 class="ui header">Editar Proveedor</h1>
+
+  <div class="ui grid">
+    <div class="four wide column">
+      <div class="ui segment">
+        <img class="ui image" [src]="[supplier.urlImage]">
+      </div>
+    </div>
+    <div class="twelve wide column ui segment">
+      <form [formGroup]="form" novalidate class="ui form" (ngSubmit)="save(form.value)">
+        <h4 class="ui dividing header">Datos principales</h4>
+        <div class="two fields">
+          <div class="required field">
+            <label for="rsocial">Razon Social</label>
+            <input type="text" id="rsocial" [formControl]="form.controls['name']">
+          </div>
+          <div class="required field">
+            <label for="ruc">RUC</label>
+            <input type="text" id="ruc" [formControl]="form.controls['ruc']">
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="required field">
+            <label for="address">Direccion</label>
+            <input type="text" id="address" [formControl]="form.controls['address']">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="text" id="email" [formControl]="form.controls['email']">
+          </div>
+        </div>
+
+        <!-- otros -->
+        <div class="fields">
+          <div class="eight wide field">
+            <h4 class="ui dividing header">Contactos</h4>
+            <div *ngFor="let contact of supplier.contacts; let i=index">
+              <button class="circular ui icon button" (click)="editPerson(i)">
+                <i class="icon write"></i>
+              </button>
+              {{contact.first_name + ' ' + contact.last_name}}
+              <div class="ui modal contact-{{i}}">
+                <div class="header">Editar contacto</div>
+                <div class="content">
+                  <app-person [id]="contact.id"></app-person>
+                </div>
+                <div class="actions">
+                  <div class="ui button">Actualizar</div>
+                  <div class="ui button">Eliminar</div>
+                  <div class="ui button">Cancelar</div>
+                </div>
+              </div>
+            </div>
+            <div class="ui field">
+              <button class="ui fluid basic button" (click)="addContact()"><i class="plus icon"></i></button>
+            </div>
+          </div>
+          <div class="eight wide field">
+            <h4 class="ui dividing header">Telefonos</h4>
+            <div *ngFor="let phone of supplier.phones; let i=index">
+              <button class="circular ui icon button" (click)="editPhone(i)">
+                <i class="icon write"></i>
+              </button>
+              {{phone.number}}
+              <div class="ui modal phone-{{i}}">
+                <div class="header">Editar Telefono</div>
+                <div class="content">
+                  <app-person></app-person>
+                </div>
+                <div class="actions">
+                  <div class="ui button">Actualizar</div>
+                  <div class="ui button">Eliminar</div>
+                  <div class="ui button">Cancelar</div>
+                </div>
+              </div>
+            </div>
+            <div class="ui field">
+              <button class="ui fluid basic button" (click)="addPhone()"><i class="plus icon"></i></button>
+            </div>
+          </div>
+        </div>
+        <!-- otros -->
+
+        <div class="field">
+          <button type="submit" [disabled]="!form.valid" class="ui fluid button">Guardar</button>
+        </div>
+        <div class="ui divider">
+        </div>
+        <div class="field">
+          <button type="submit" class="ui fluid secondary button">Eliminar</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>

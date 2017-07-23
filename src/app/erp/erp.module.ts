@@ -9,6 +9,10 @@ import { DashboardService } from './dashboard.service';
 import { MenuSetComponent } from './dashboard/menu-set/menu-set.component';
 import { IconMenuSetComponent } from './dashboard/icon-menu-set/icon-menu-set.component';
 
+// Prueba
+import { SharedModule } from './shared/shared.module';
+import { PersonComponent } from './shared/person/person.component';
+
 const childRoutes: Routes = [
   {
     path: '',
@@ -61,6 +65,11 @@ const erpRoutes: Routes = [
     component: DashboardComponent,
     children: childRoutes
   },
+  // Prueba
+  {
+    path: 'prueba',
+    component: PersonComponent
+  },
   {
     path: '**',
     redirectTo: 'main'
@@ -70,7 +79,9 @@ const erpRoutes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(erpRoutes)
+    RouterModule.forChild(erpRoutes),
+    // Prueba
+    SharedModule
   ],
   declarations: [
     DashboardComponent,

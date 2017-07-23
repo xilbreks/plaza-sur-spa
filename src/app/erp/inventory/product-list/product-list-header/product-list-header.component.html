@@ -1,0 +1,21 @@
+<table class="ui celled table">
+  <thead>
+    <tr>
+      <th style="text-align:center; cursor:pointer" class="six wide column" (click)="changeSortBy('name')">
+        Nombre
+        <i *ngIf="sortBy=='name'" class="caret icon" [ngClass]="{'up': sortDirection=='ascending', 'down':sortDirection=='descending'}">
+        </i>
+      </th>
+      <th style="text-align:center; cursor:pointer" class="six wide column" (click)="changeSortBy('category')">
+        Categoria
+        <i *ngIf="sortBy=='category'" class="caret icon" [ngClass]="{'up': sortDirection=='ascending', 'down':sortDirection=='descending'}">
+        </i>
+      </th>
+      <th style="text-align:center; cursor:pointer" class="four wide column" (click)="changeSortBy('price')">
+        Precio (S/)
+        <i *ngIf="sortBy=='price'" class="caret icon" [ngClass]="{'up': sortDirection=='ascending', 'down':sortDirection=='descending'}">
+        </i>
+      </th>
+    </tr>
+  </thead>
+</table>

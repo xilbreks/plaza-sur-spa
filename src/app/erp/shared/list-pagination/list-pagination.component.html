@@ -1,0 +1,7 @@
+<div class="ui sixteen wide column">
+  <div class="ui pagination menu">
+    <a *ngFor="let page of pages" [class.disabled]="page==currentPage" class="item" (click)="changePage(page)">
+      {{page}}
+    </a>
+  </div>
+</div>

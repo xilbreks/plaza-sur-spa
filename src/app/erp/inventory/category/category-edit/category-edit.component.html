@@ -1,0 +1,109 @@
+<div class="column" *ngIf="category">
+  <h2 class="ui header">Editar categoria</h2>
+  <div class="ui divider"></div>
+  <div class="ui grid">
+    <div class="sixteen wide column">
+      <h3 class="ui header">
+        <div class="content">
+          Nombre
+          <i class="write large icon" (click)="openNameModal()"></i>
+        </div>
+        <div class="sub header">
+          {{category.name}}
+        </div>
+      </h3>
+    </div>
+    <div class="sixteen wide column">
+      <h3 class="ui header">
+        <div class="content">
+          Descripcion
+          <i class="write large icon" (click)="openDescriptionModal()"></i>
+        </div>
+        <div class="sub header">
+          {{category.description}}
+        </div>
+      </h3>
+    </div>
+  </div>
+  <div class="ui divider"></div>
+  <div class="ui grid">
+    <div class="sixteen wide column">
+      <button class="ui red button" (click)="openDeleteModal()">
+        <i class="trash icon"></i> Eliminar
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="ui modal name">
+
+  <div class="ui segment" *ngIf="savingName">
+    <div class="ui active dimmer">
+      <div class="ui indeterminate text loader">Guardando Cambios</div>
+    </div>
+    <p></p>
+    <p></p>
+    <p></p>
+  </div>
+
+  <div class="header" *ngIf="!savingName">Nombre de la categoria</div>
+  <div class="content" *ngIf="!savingName">
+    <form class="ui form" (ngSubmit)="saveName(name.value)">
+      <div class="field">
+        <input type="text" [formControl]="name" placeholder="Nombre">
+      </div>
+    </form>
+  </div>
+  <div class="actions" *ngIf="!savingName">
+    <div class="ui blue button" (click)="saveName(name.value)">Guardar</div>
+    <div class="ui default cancel button">Cancelar</div>
+  </div>
+</div>
+
+<div class="ui modal description">
+
+  <div class="ui segment" *ngIf="savingDescription">
+    <div class="ui active dimmer">
+      <div class="ui indeterminate text loader">Guardando Cambios</div>
+    </div>
+    <p></p>
+    <p></p>
+    <p></p>
+  </div>
+
+  <div class="header" *ngIf="!savingDescription">Descripcion de la categoria</div>
+  <div class="content" *ngIf="!savingDescription">
+    <form class="ui form" (ngSubmit)="saveDescription(description.value)">
+      <div class="field">
+        <textarea type="text" [formControl]="description" placeholder="Descripcion"></textarea>
+      </div>
+    </form>
+  </div>
+  <div class="actions" *ngIf="!savingDescription">
+    <div class="ui blue button" (click)="saveDescription(description.value)">Guardar</div>
+    <div class="ui default cancel button">Cancelar</div>
+  </div>
+</div>
+
+<div class="ui modal delete">
+
+  <div class="ui segment" *ngIf="deletingRecord">
+    <div class="ui active dimmer">
+      <div class="ui indeterminate text loader">Borrando Registro</div>
+    </div>
+    <p></p>
+    <p></p>
+    <p></p>
+  </div>
+
+  <div class="header" *ngIf="!deletingRecord">Esta seguro de borrar el registro?</div>
+  <div class="content" *ngIf="!deletingRecord">
+    <div>
+      Si borra este registro no podrá ser recuperado.
+    </div>
+  </div>
+  <div class="actions" *ngIf="!deletingRecord">
+    <div class="ui red button" (click)="deleteRecord()">Borrar</div>
+    <div class="ui default cancel button">Cancelar</div>
+  </div>
+</div>

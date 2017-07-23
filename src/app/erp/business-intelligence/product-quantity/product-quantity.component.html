@@ -1,0 +1,25 @@
+<div class="ui column">
+  <div class="ui grid">
+    <div class="row" *ngIf="mostrar">
+      <div class="sixteen wide tablet eight wide computer column">
+        <div class="ui segment" style="display: block">
+          <canvas baseChart
+                  [data]="pieChartData"
+                  [labels]="pieChartLabels"
+                  [chartType]="'pie'">
+          </canvas>
+        </div>
+      </div>
+      <div class="sixteen wide tablet eight wide computer column">
+        <div class="ui segment" style="display: block">
+          <canvas baseChart
+                  [data]="polarAreaChartData"
+                  [labels]="polarAreaChartLabels"
+                  [legend]="true"
+                  [chartType]="'polarArea'">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

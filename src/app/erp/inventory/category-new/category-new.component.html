@@ -1,0 +1,31 @@
+<div class="column">
+  <h2 class="ui header">
+    Nueva Categoria
+  </h2>
+  <form class="ui raised form segment" [formGroup]="form" (ngSubmit)="saveRecord(form.value)">
+    <div class="required field">
+      <label for="name">Nombre</label>
+      <input type="text" id="name" placeholder="Nombre" [formControl]="form.controls['name']">
+    </div>
+    <div class="required field">
+      <label for="descripcion">Descripcion</label>
+      <textarea id="descripcion" placeholder="Descripcion" [formControl]="form.controls['description']"></textarea>
+    </div>
+    <button class="ui submit button" (click)="saveRecord(form.value)">
+      <i class="save icon"></i> Guardar
+    </button>
+  </form>
+</div>
+
+<div class="ui modal creating">
+
+  <div class="ui segment" >
+    <div class="ui active dimmer">
+      <div class="ui indeterminate text loader">Creando Registro</div>
+    </div>
+    <p></p>
+    <p></p>
+    <p></p>
+  </div>
+
+</div>

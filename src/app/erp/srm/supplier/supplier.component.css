@@ -1,0 +1,5 @@
+.ui.tabular.menu .active.item {
+    background-color: #f1f4f5;
+    border-color: blue #e1e4e8 transparent;
+    border-width: 3px 1px 1px;
+}

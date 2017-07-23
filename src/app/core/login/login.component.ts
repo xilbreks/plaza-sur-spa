@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
           localStorage.setItem('token',response.result);
           this.router.navigate(['./app']);
         }else{
-          console.log('Credenciales incorrectas');
+          console.log('Credenciales incorrectas',response);
           this.error = true;
           this.message = response.msg; 
           password.value = '' ;

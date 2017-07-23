@@ -1,0 +1,23 @@
+<div class="column" *ngIf="category">
+  <h2 class="ui header">Detalles de la categoria</h2>
+  <div class="ui divider"></div>
+  <div class="ui grid">
+    <div class="sixteen wide column">
+      <h3 class="ui header">
+        Nombre
+        <div class="sub header">
+          {{category.name}}
+        </div>
+      </h3>
+    </div>
+    <div class="sixteen wide column">
+      <h3 class="ui header">
+        Descripcion
+        <div class="sub header">
+          {{category.description}}
+        </div>
+      </h3>
+    </div>
+  </div>
+  
+</div>
