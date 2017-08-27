@@ -15,7 +15,7 @@
     </div>
   </div>
   <ng-template #elseTemplate>
-    <table *ngIf="products.length; else otroTemplate" class="ui celled table" style="margin-top:0em;">
+    <table *ngIf="!!products.length; else otroTemplate" class="ui celled table" style="margin-top:0em;">
       <tbody>
         <tr *ngFor="let product of products">
           <td style="text-align:center" class="five wide column">
@@ -43,7 +43,7 @@
     </ng-template>
   </ng-template>
 
-  <app-list-pagination *ngIf="!loading && products.length" 
+  <app-list-pagination *ngIf="!loading && !!products.length" 
     [totalPages]="totalPages"
     [currentPage]="currentPage"
     [totalRecords]="totalRecords"

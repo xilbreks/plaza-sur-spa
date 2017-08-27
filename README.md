@@ -51,5 +51,32 @@ total:
 detalle,
 cantidad_entrante, precio, total
 
+Orden de descarga:
+
+inline:
+loader
+
+polyfills:
+apis del navegador
+
+extras: 
+scripts
+
+vendor:
+angular
+
+main: 
+login
+
+Modulos del chunk:
+7: Users
+6: CRM
+5: ERP
+4: PointOfSale
+3: SRM
+2: Logistics
+1: Inventory
+0: BI
+
 
 

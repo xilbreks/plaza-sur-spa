@@ -12,6 +12,7 @@ import { IconMenuSetComponent } from './dashboard/icon-menu-set/icon-menu-set.co
 // Prueba
 import { SharedModule } from './shared/shared.module';
 import { PersonComponent } from './shared/person/person.component';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 const childRoutes: Routes = [
   {
@@ -68,7 +69,7 @@ const erpRoutes: Routes = [
   // Prueba
   {
     path: 'prueba',
-    component: PersonComponent
+    component: PruebaComponent
   },
   {
     path: '**',
@@ -81,7 +82,8 @@ const erpRoutes: Routes = [
     CommonModule,
     RouterModule.forChild(erpRoutes),
     // Prueba
-    SharedModule
+    SharedModule,
+    ChartsModule
   ],
   declarations: [
     DashboardComponent,

@@ -1,3 +1,84 @@
-<p>
-  prueba works!
-</p>
+
+<div class="row">
+  <div class="ui segment">
+    Cantidad de agencias: {{agencias.length}}
+  </div>
+</div>
+
+<div class="row">
+  <div class="ui centered grid">
+    <div class="row">
+      <div class="sixteen wide tablet eight wide computer column">
+        <div class="ui segment" style="display: block">
+          <canvas baseChart
+                  [data]="pieChartData"
+                  [labels]="pieChartLabels"
+                  [chartType]="pieChartType">
+          </canvas>
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="ui centered grid">
+    <div class="row">      
+      <div class="sixteen wide column">
+        <div class="ui segment">
+          Usabilidad de los sitios web
+        </div>
+      </div>
+      <div class="sixteen wide column">
+        <div class="ui segment">
+          <canvas baseChart
+                  [datasets]="barChartData"
+                  [labels]="barChartLabels"
+                  [options]="barChartOptions"
+                  [legend]="false"
+                  [chartType]="'horizontalBar'"
+                  (chartClick)="chartClicked($event)">
+          </canvas>
+        </div>
+      </div>
+      <div class="sixteen wide column">
+        <div class="ui segment">
+          Se consideran las 5 dimenciones basicas:
+          <ol>
+            <li>Aprendizaje (Facil de aprender)</li>
+            <li>Eficiencia (Facil de usar)</li>
+            <li>Memorabilidad (Facil de recordar)</li>
+            <li>Minimos errores (Pocos errores)</li>
+            <li>Satisfacion</li>
+          </ol>
+          Aspectos de diseño web:
+          <ol>
+            <li>Contenido de calidad, usualmente actualizado, tiempo de descarga minima, 
+              facil de usar, Pertinente a las necesidades del usuario
+            </li>
+            <li>La estructura tiene que ser facil de navegar, saber donde entan, donde
+              estaban y donde pueden ir
+            </li>
+            <li>Diferencia entre Home Page y Pagina Interior, considerar diferencias</li>
+            <li>Diseñar la pagina para diferentes pantallas y plataformas</li>
+            <li>Contenido de la Pagina</li>
+          </ol>
+        </div>
+      </div>
+      <div class="sixteen wide tablet eight wide computer column">
+        <div class="ui segment">
+          <canvas baseChart
+                  [datasets]="radarChartData"
+                  [labels]="radarChartLabels"
+                  [chartType]="radarChartType"
+                  (chartClick)="chartClicked($event)">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<pre>
+  {{agencias | json}}
+</pre>
